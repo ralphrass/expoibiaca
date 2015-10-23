@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com https://maps.gstatic.com https://maps.googleapis.com https://csi.gstatic.com https://maps.google.com https://google-maps-utility-library-v3.googlecode.com https://mts1.googleapis.com https://mts0.googleapis.com https://www.google.com 'unsafe-eval'; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; media-src *; img-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta charset="UTF-8">        
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" type="text/css" href="css/swipebox.min.css">
+        <link rel="stylesheet" type="text/css" href="css/expoibiaca.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>ExpoIbiaçá</title>
+        <script type="text/javascript" src="cordova.js"></script>        
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.swipebox.min.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/expositores.js"></script>
+    </head>
+    <body>
+
+        <div data-role="header">
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+            <a href="#popupMenu" data-rel="popup" data-transition="slide" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-bars ui-btn-icon-right ui-btn-a ui-btn-icon-notext">Menu</a>
+            <a data-rel="back" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-back ui-btn-icon-right ui-btn-a ui-btn-icon-notext">Voltar</a>
+            </div>
+            <img src="img/logo.png" width="100%" />
+        </div>
+
+        <div data-role="popup" id="popupMenu" data-theme="a">
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="home" id="home"><a href="#home">Início</a></li>
+                <li data-icon="star"><a href="#favoritos">Favoritos</a></li>
+                <li data-icon="grid"><a href="#expositores">Expositores</a></li>
+                <li data-icon="calendar"><a href="#programacao">Programação</a></li>
+                <li data-icon="location"><a href="#mapa-estatico">Como chegar na Feira</a></li>
+                <li data-icon="edit"><a href="#planta">Planta da Feira</a></li>
+                <li data-icon="eye"><a href="#fotos">Fotos - 2013</a></li>
+                <li data-icon="info"><a href="#sobre">Sobre este Aplicativo</a></li>
+            </ul>
+        </div>
+        <!-- Home -->
+        <div data-role="page" id="home">            
+            <div data-role="content" align="center">
+                <a href="https://www.facebook.com/expoibiaca"><img src="img/facebook-icon.jpg" width="110"></a>
+                <a href="https://www.youtube.com/watch?v=NtCcqP8M1jY"><h2 class="ui-bar ui-bar-a ui-corner-all">Clique aqui para ver o nosso video promocional</h2></a>
+            </div>
+        </div>
+
+        <!-- Expositores -->
+        <div data-role="page" id="expositores">            
+            <div data-role="content">
+                <a href="#expositoresPorPavilhao" class="ui-btn ui-corner-all" onclick="carregarExpositoresPorPavilhao();">Ver Expositores classificados por Área/Pavilão</a>
+                <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtrar Expositor" data-autodividers="false"></ul>
+            </div>
+        </div>
+
+        <!-- Expositores -->
+        <div data-role="page" id="expositoresPorPavilhao">            
+            <div data-role="content">
+                <a href="#expositores" class="ui-btn ui-corner-all" onclick="carregarExpositoresPorOrdemAlfabetica();">Ver Expositores classificados em Ordem Alfabética</a>
+                <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtrar Expositor" data-autodividers="false"></ul>
+            </div>
+        </div>
+
+        <!-- Favoritos -->
+        <div data-role="page" id="favoritos">            
+            <div data-role="content">
+                <ul data-role="listview"></ul>
+            </div>
+        </div>
+
+        <!-- Detalhes do Expositor -->
+        <div data-role="page" id="expositorDetalhe">
+            <div data-role="content">
+                <h3 class="ui-bar ui-bar-a ui-corner-all">Teste</h3>
+                <div class="ui-body ui-body-a ui-corner-all">
+                    <p>Estande </p>
+                    <textarea rows="8" cols="30" name="notas" id="notas" placeholder="Digite aqui suas Notas"></textarea>
+                    <a href="#" onclick="salvarNotas();" class="ui-btn ui-btn-inline ui-corner-all">Salvar Notas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa da Feira -->
+        <div data-role="page" id="mapa-estatico" align="center">
+            <a href="#map-page" class="ui-btn ui-btn-inline ui-corner-all">Ver Mapa On-Line</a><br><br>
+            <img src="img/mapa.png" />
+        </div>
+
+        <div data-role="page" id="map-page">
+            <div id="map"></div>
+
+            <iframe width="100%" height="500px" frameborder="0" style="border:0; overflow: hidden"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBAiMbHKcul9U04eTOCxLXtK6uw5sXS398&q=Rua+do+Interventor,Ibiaca+RS" allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Planta -->
+        <div data-role="page" id="planta">
+            <div data-role="content">
+                <h3 class="ui-bar ui-bar-a ui-corner-all">Clique para ver as fotos da planta</h3>
+                <img width="100%" src="img/planta/mapa-geral.jpg" style="cursor: point" alt="Planta" id="galeria-planta">
+            </div>            
+        </div>
+
+        <!-- Fotos -->
+        <div data-role="page" id="fotos">
+            <div data-role="content">
+                <h3 class="ui-bar ui-bar-a ui-corner-all">Clique para ver as fotos do evento (2013)</h3>
+                <img width="100%" src="img/2013/45.jpg" style="cursor: point" alt="Galeria" id="galeria">
+            </div>            
+        </div>
+
+        <!-- Sobre -->
+        <div data-role="page" id="sobre">    
+
+            <div data-role="content">
+                <h3 class="ui-bar ui-bar-a ui-corner-all">Sobre este App</h3>
+                <div class="ui-body ui-body-a ui-corner-all">
+                    <div align="center"><img src="img/Star7-Blue-Row.png" /></div>
+                    <p>
+                        <strong>ExpoIbiaçá</strong> V. 1.0.0 <br><br><strong>Star7</strong> Apps multi-plataforma. Entre em contato e potencialize o marketing do seu evento!<br><br> +55 (54) 9144-0811<br>+55 (54) 9185-2462<br><br>wallacy@star7apps.com<br>ralph@star7apps.com <br><br>
+                        <a href="www.star7apps.com" class="ui-btn ui-btn-inline ui-corner-all">www.star7apps.com</a>
+                    </p>
+                </div>
+            </div>            
+        </div>
+
+        <!-- Detalhes da Programação -->
+        <div data-role="page" id="programacaoDetalhe">
+            <div data-role="content">
+                <h3 class="ui-bar ui-bar-a ui-corner-all">Nenhum item selecionado</h3>
+                <div class="ui-body ui-body-a ui-corner-all">
+                    <p>Sem Detalhes</p>
+                    <p>Horário</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progrmação -->
+        <div data-role="page" id="programacao">
+            <div data-role="content">
+                <h2 class="ui-bar ui-bar-a ui-corner-all" style="margin: 0px">Programação</h2>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" style="font-size: 16px">Sexta-Feira, 20 de Novembro</li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Horário de Visitação dos Estandes</h2>
+                            <p><strong>16:00 às 22:00</strong></p>
+                            <p class="descricao" style="display: none">Horário de Visitação dos Estandes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Abertura Oficial</h2>
+                            <p><strong>20:00</strong></p>
+                            <p class="descricao" style="display: none">Abertura Oficial</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Lançamento do Livro 50 anos Ibiaçá</h2>
+                            <p class="descricao" style="display: none">Lançamento do Livro 50 anos Ibiaçá</p>
+                            <p><strong>20:45</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Orquestra de Teutônia</h2>
+                            <p class="descricao" style="display: none">Orquestra de Teutônia</p>
+                            <p><strong>21:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Rogério Magrão</h2>
+                            <p class="descricao" style="display: none">Rogério Magrão</p>
+                            <p><strong>22:00</strong></p>
+                        </a>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" style="font-size: 16px">Sábado, 21 de Novembro</li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Horário de Visitação dos Estandes</h2>
+                            <p><strong>10:00 às 22:00</strong></p>
+                            <p class="descricao" style="display: none">Horário de Visitação dos Estandes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>I Fórum Agropecuário de Ibiaçá</h2>
+                            <p class="descricao" style="display: none">I Fórum Agropecuário de Ibiaçá</p>
+                            <p><strong>09:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Controle de doenças de soja na safra 2016</h2>
+                            <p class="descricao">Palestra com Dr. Carlos Forcellini</p>
+                            <p><strong>09:30</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Por que devo seguir produzindo leite?</h2>
+                            <p class="descricao">Palestra com Dr. Jorge Duarte</p>
+                            <p><strong>10:45</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Festival de Bandas Marciais</h2>
+                            <p class="descricao" style="display: none">Festival de Bandas Marciais</p>
+                            <p><strong>14:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Show de Motos</h2>
+                            <p class="descricao">Grupo Stunt Moto Show</p>
+                            <p><strong>16:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Festival Sertanejo</h2>
+                            <p class="descricao">Alex & Willian, Roger Henrique & Gustavo, Pablo & Ramon</p>
+                            <p><strong>22:00</strong></p>
+                        </a>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" style="font-size: 16px">Domingo, 22 de Novembro</li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Horário de Visitação dos Estandes</h2>
+                            <p><strong>10:00 às 18:00</strong></p>
+                            <p class="descricao" style="display: none">Horário de Visitação dos Estandes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Início do 1o pedal da fé</h2>
+                            <p class="descricao" style="display: none">Início do 1o pedal da fé</p>
+                            <p><strong>08:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Missa de Ação de Graças 50 anos de Ibiaçá</h2>
+                            <p class="descricao" style="display: none">Missa de Ação de Graças 50 anos de Ibiaçá</p>
+                            <p><strong>09:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Ônibus do Grêmio com Taças, Mosqueteiro e Musa do Grêmio</h2>
+                            <p class="descricao" style="display: none">Ônibus do Grêmio com Taças, Mosqueteiro e Musa do Grêmio</p>
+                            <p><strong>10:00 às 17:00</strong></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programacao-detalhe?detalhe=this">
+                            <h2>Show e Gravação do Galpão Crioulo</h2>
+                            <p class="descricao" style="display: none">Show e Gravação do Galpão Crioulo</p>
+                            <p><strong>17:00</strong></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/programacao.js"></script>
+        <script type="text/javascript" src="js/swipebox.js"></script>
+    </body>
+</html>
