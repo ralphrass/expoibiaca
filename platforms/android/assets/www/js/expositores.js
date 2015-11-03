@@ -19,7 +19,7 @@ var expositoresLista = [
 	email:"podepimentaboutique@gmail.com", pavilhao:"Interno Superior" },
 { id:10, nome:"Proteyger", estande:"19", responsavel:"Fernando Domingo", telefone:"(54) 3374-1442 / (54) 9919-1179", 
 	email:"proteygermonitoramento@yahoo.com.br", pavilhao:"Interno Superior" },
-{ id:11, nome:"Creral Telecom", estande:"20", responsavel:"Edilson Carlos Guzzo", telefone:"(54) 3321-2599 / (54) 9939-2053", 
+{ id:11, nome:"Crereal Telecom", estande:"20", responsavel:"Edilson Carlos Guzzo", telefone:"(54) 3321-2599 / (54) 9939-2053", 
 	email:"guzzo@crerau.com.br", pavilhao:"Interno Superior" },
 { id:12, nome:"Tchê Motos", estande:"21 e 22", responsavel:"Elias Panisson", telefone:"(54) 9641-6079", 
 	email:"tche.motos@hotmail.com", pavilhao:"Interno Superior" },
@@ -43,7 +43,7 @@ var expositoresLista = [
 	telefone:"(54) 3374-1037", email:"cjainf@brturbo.com.br", pavilhao:"Interno Superior" },
 { id:22, nome:"Decorart" , estande:"27", responsavel:"Fabiola Bólico", 
 	telefone:"(54) 9978-4217", email:"", pavilhao:"Interno Superior" },
-{ id:23, nome:"Decorart" , estande:"30", responsavel:"Fernanda Bee", 
+{ id:23, nome:"PROSEG Segurança do Trabalho" , estande:"30", responsavel:"Fernanda Bee", 
 	telefone:"(54) 9943-6610", email:"prosegatendimento@gmail.com", pavilhao:"Interno Superior" },
 { id:24, nome:"Brusso Materiais Elétrticos e Automação" , estande:"41", responsavel:"Carlos Alberto Brusso", 
 	telefone:"(54) 3344-1020 / (54) 9939-0684", email:"carlos_brusso@hotmail.com", pavilhao:"Interno Superior" },
@@ -56,7 +56,13 @@ var expositoresLista = [
 { id:28, nome:"Panosul" , estande:"67", responsavel:"Rodrigo Giacomin", 
 	telefone:"(54) 3374-1820", email:"comercial@panosul.com.br", pavilhao:"Interno Inferior" },
 { id:29, nome:"Scariot Construtora" , estande:"72", responsavel:"Paulo Scariot", 
-	telefone:"(54) 9184-2739", email:"scariotconstrutora@gmail.com", pavilhao:"Interno Inferior" }
+	telefone:"(54) 9184-2739", email:"scariotconstrutora@gmail.com", pavilhao:"Interno Inferior" },
+{ id:30, nome:"Alternativa Motors" , estande:"98", responsavel:"Rogério Rovani", 
+	telefone:"(54) 3344-1338", email:"vendas@alternativamotors.net.br", pavilhao:"Externo" },
+{ id:31, nome:"Lavoro John Geehre" , estande:"108", responsavel:"Ademir Calderan", 
+	telefone:"(54) 3344-0053", email:"calderan.a@lavoro.agr.br / rodio.n@lavoro.agr.br", pavilhao:"Externo" },
+{ id:31, nome:"Aral" , estande:"109", responsavel:"Altemir Santini / Maicon Balansin", 
+	telefone:"(54) 3344-1007 - (54) 3344-0022", email:"vendas@aralcabinas.com.br", pavilhao:"Externo" }
 ]
 
 function compareStrings(a, b) {

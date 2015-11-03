@@ -69,6 +69,17 @@ $( '#galeria-planta' ).click( function( e ) {
 	$.swipebox( [
 		{ href:'img/planta/01.jpg', title:'ExpoIbiaca' }, 
 		{ href:'img/planta/02.jpg', title:'ExpoIbiaca' },
-		{ href:'img/planta/03.jpg', title:'ExpoIbiaca' }
+		{ href:'img/planta/03.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/04.jpg', title:'ExpoIbiaca' }, 
+		{ href:'img/planta/05.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/06.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/07.jpg', title:'ExpoIbiaca' }, 
+		{ href:'img/planta/08.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/09.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/10.jpg', title:'ExpoIbiaca' }, 
+		{ href:'img/planta/11.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/12.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/13.jpg', title:'ExpoIbiaca' },
+		{ href:'img/planta/14.jpg', title:'ExpoIbiaca' }
 	] );
 } );
